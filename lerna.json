@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "*.md"
+      ],
+      "registry": "https://registry.npmjs.org/"
+    },
+    "bootstrap": {
+      "ignore": []
+    }
+  }
+}

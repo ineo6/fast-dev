@@ -1,0 +1,24 @@
+.header {
+  height: 40px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  padding-right: 14px;
+  -webkit-app-region: drag;
+
+  & * {
+    -webkit-app-region: no-drag;
+  }
+}
+
+.platform-mac {
+  .header {
+    padding-left: 80px;
+  }
+}
+
+.pop-list {
+  &-item {
+    height: 30px;
+    line-height: 30px;
+  }
+}

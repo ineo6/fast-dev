@@ -1,0 +1,20 @@
+{
+  server: {
+    intercepts: {
+      'github.githubassets.com': {
+        '.*': {
+          proxy: 'assets.fastgit.org',
+          sni: null
+        }
+      }
+    },
+    dns: {
+      mapping: {
+        '*jetbrains.com': 'quad9',
+      },
+      speedTest: {
+        interval: 60000,
+      },
+    }
+  }
+}

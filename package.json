@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "cd ./packages/app && node ./scripts/build.mjs",
+    "build:mac": "cd ./packages/app && MAKE_FOR=mac node ./scripts/build.mjs",
+    "build:windows": "cd ./packages/app && MAKE_FOR=win node ./scripts/build.mjs",
+    "dev": "cd ./packages/app && node ./scripts/watch.mjs",
+    "build:deps": "npm run build:fast-ip && npm run build:mitmproxy && npm run build:core",
+    "build:fast-ip": "cd ./packages/fast-ip && npm run build",
+    "build:mitmproxy": "cd ./packages/mitmproxy && npm run build",
+    "build:core": "cd ./packages/core && npm run build",
+    "pre-commit": "magic-lint --staged --eslint --prettier --fix",
+    "commit-msg": "magic-lint --commit",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-react": "^7.16.7",
+    "@types/node": "14.17.4",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "esbuild": "^0.14.11",
+    "eslint": "^7.32.0",
+    "eslint-config-magic": "^2.3.0",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.0",
+    "lerna": "^3.22.1",
+    "magic-lint": "^2.1.0",
+    "typescript": "^4.6.3"
+  },
+  "repository": "https://github.com/ineo6/fast-dev.git"
+}
