@@ -5,8 +5,8 @@
   ],
   "scripts": {
     "build": "cd ./packages/app && node ./scripts/build.mjs",
-    "build:mac": "cd ./packages/app && MAKE_FOR=mac node ./scripts/build.mjs",
-    "build:windows": "cd ./packages/app && MAKE_FOR=win node ./scripts/build.mjs",
+    "build:mac": "cd ./packages/app && cross-env MAKE_FOR=mac node ./scripts/build.mjs",
+    "build:windows": "cd ./packages/app && cross-env MAKE_FOR=win node ./scripts/build.mjs",
     "dev": "cd ./packages/app && node ./scripts/watch.mjs",
     "build:deps": "npm run build:fast-ip && npm run build:mitmproxy && npm run build:core",
     "build:fast-ip": "cd ./packages/fast-ip && npm run build",
@@ -24,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
     "chalk": "^4.1.2",
+    "cross-env": "^7.0.3",
     "esbuild": "^0.14.11",
     "escape-goat": "^3.0.0",
     "eslint": "^7.32.0",
