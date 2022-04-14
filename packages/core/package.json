@@ -26,5 +26,8 @@
   "devDependencies": {
     "rollup-plugin-copy": "^3.4.0",
     "vite": "^2.6.14"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

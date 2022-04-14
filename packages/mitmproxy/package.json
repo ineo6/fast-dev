@@ -34,5 +34,8 @@
   },
   "devDependencies": {
     "vite": "^2.6.14"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
