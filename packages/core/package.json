@@ -1,6 +1,6 @@
 {
   "name": "@fast-dev/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FastDev服务层",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
@@ -13,7 +13,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@fast-dev/mitmproxy": "1.0.0",
+    "@fast-dev/mitmproxy": "1.0.1",
     "axios": "^0.24.0",
     "fix-path": "^3.0.0",
     "iconv-lite": "^0.6.3",

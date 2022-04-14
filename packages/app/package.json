@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/main/index.js",
   "scripts": {
     "icons": "electron-icon-builder --input=./public/logo.png --output=public --flatten"
@@ -8,8 +8,8 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@codemirror/stream-parser": "^0.19.3",
-    "@fast-dev/core": "1.0.0",
-    "@fast-dev/mitmproxy": "1.0.0",
+    "@fast-dev/core": "1.0.1",
+    "@fast-dev/mitmproxy": "1.0.1",
     "@uiw/react-codemirror": "^4.3.1",
     "antd": "^4.16.13",
     "axios": "^0.25.0",

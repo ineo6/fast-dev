@@ -25,7 +25,7 @@ function createPackageJson () {
   const target = join(dist, 'package.json')
 
   const tpl = readFileSync(join(__dirname, 'package.json.tpl'), 'utf-8');
-  const content = tpl.replace('{{version}}', pkg.version);
+  const content = tpl.replace(/{{version}}/g, pkg.version);
   console.log(`${chalk.green('Write:')} ${relative(workSpace, target)}`);
   writeFileSync(target, content, 'utf-8');
 }
