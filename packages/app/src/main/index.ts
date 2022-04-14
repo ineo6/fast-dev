@@ -225,7 +225,7 @@ async function quit() {
 function setDock() {
   if (isMac) {
     app.whenReady().then(() => {
-      app.dock.setIcon(path.join(__dirname, "../assets/icons/512x512.png"));
+      app.dock.setIcon(path.join(__dirname, "../assets/icons/logo.png"));
     });
   }
 }

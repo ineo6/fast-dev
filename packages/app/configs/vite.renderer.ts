@@ -6,8 +6,6 @@ import { builtinModules } from "module";
 import commonjsExternals from "vite-plugin-commonjs-externals";
 import svgrPlugin from "vite-plugin-svgr";
 
-console.log(process.env.NODE_ENV, "dddddd");
-
 export default defineConfig({
   mode: process.env.NODE_ENV,
   root: join(__dirname, "../src/renderer"),

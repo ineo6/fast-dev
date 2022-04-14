@@ -1,8 +1,8 @@
 import path, { join, relative } from "path";
-import { readFileSync, writeFileSync, copyFileSync } from "fs";
+import { readFileSync, writeFileSync, copyFileSync, existsSync } from "fs";
 import chalk from "chalk";
 import url from "url";
-import fsExtra from 'fs-extra'
+import fsExtra, { mkdirpSync } from 'fs-extra'
 
 const { __dirname } = getPath(import.meta.url)
 
@@ -31,6 +31,10 @@ function createPackageJson () {
 }
 
 export function generateBaseFile () {
+  if (!existsSync(dist)) {
+    mkdirpSync(dist)
+  }
+
   createPackageJson()
 
   copyFileSync(join(workSpace, './scripts/mitmproxy.js'), join(dist, 'mitmproxy.js'))
