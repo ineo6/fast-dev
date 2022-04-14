@@ -7,8 +7,8 @@
   "author": "ineo6",
   "main": "./main/index.js",
   "dependencies": {
-    "@fast-dev/mitmproxy": "^0.0.1",
-    "@fast-dev/core": "^0.0.1",
+    "@fast-dev/mitmproxy": "{{version}}",
+    "@fast-dev/core": "{{version}}",
     "json5": "^2.1.3"
   }
 }
