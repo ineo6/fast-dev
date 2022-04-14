@@ -1,6 +1,6 @@
 import http from "http";
 import https from "https";
-import speedTest from "fast-ip";
+import speedTest from "@fast-dev/fast-ip";
 import defaultDns from "dns";
 import DnsUtil from "../../dns/index";
 import log from "../../../utils/log";

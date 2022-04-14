@@ -1,5 +1,5 @@
 import http from "http";
-import speedTest from "fast-ip";
+import speedTest from "@fast-dev/fast-ip";
 import tlsUtils from "../tls/tlsUtils";
 import config from "../common/config";
 import log from "../../../utils/log";

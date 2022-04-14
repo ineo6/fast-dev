@@ -1,6 +1,6 @@
 {
   "name": "@fast-dev/mitmproxy",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
@@ -14,13 +14,13 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@fast-dev/fast-ip": "1.0.0",
     "@types/http-proxy": "^1.17.8",
     "agentkeepalive": "^4.1.4",
     "axios": "^0.21.1",
     "colors": "^1.1.2",
     "dns-over-http": "^0.2.0",
     "dns-over-tls": "^0.0.8",
-    "fast-ip": "^0.0.1",
     "http-proxy": "^1.18.1",
     "json5": "^2.1.3",
     "lodash": "^4.7.0",

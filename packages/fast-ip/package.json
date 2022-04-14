@@ -1,6 +1,6 @@
 {
-  "name": "fast-ip",
-  "version": "0.0.1",
+  "name": "@fast-dev/fast-ip",
+  "version": "1.0.0",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "scripts": {
@@ -15,5 +15,8 @@
     "@types/node": "^17.0.5",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

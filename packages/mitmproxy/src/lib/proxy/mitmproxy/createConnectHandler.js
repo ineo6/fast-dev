@@ -6,7 +6,7 @@ import DnsUtil from "../../dns/index";
 const localIP = "127.0.0.1";
 import defaultDns from "dns";
 import matchUtil from "../../../utils/match";
-import speedTest from "fast-ip";
+import speedTest from "@fast-dev/fast-ip";
 
 function isSslConnect(sslConnectInterceptors, req, cltSocket, head) {
   for (const intercept of sslConnectInterceptors) {

@@ -1,4 +1,4 @@
-import speedTest from "fast-ip";
+import speedTest from "@fast-dev/fast-ip";
 import mitmproxy from "./lib/proxy";
 import ProxyOptions from "./options";
 import proxyConfig from "./lib/proxy/common/config";
