@@ -1,16 +1,16 @@
 import Icon, {
+  HeartOutlined,
   HomeOutlined,
   LikeFilled,
   MenuOutlined,
   RocketOutlined,
   SafetyCertificateOutlined,
-  StarOutlined,
   SyncOutlined
 } from "@ant-design/icons";
-import { Popover, Modal, Badge, Tag } from "antd";
+import { Popover, Badge } from "antd";
 import { useApi } from "../../utils/api";
 import { ReactComponent as CloseSvg } from "../../assets/images/close.svg";
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { GitHubUrl } from "../../constants";
 import "./index.less";
 
@@ -21,11 +21,13 @@ interface IHeader {
   hasCert: boolean;
   platform: string;
   newVersion: IRelease;
+  version: string;
 }
 
 interface IAboutListProps {
   release: IRelease;
   onUpdateCheck: Function;
+  version: string;
 }
 
 export interface IRelease {
@@ -34,7 +36,7 @@ export interface IRelease {
   id?: number;
 }
 
-function AboutList({ release, onUpdateCheck }: IAboutListProps) {
+function AboutList({ release, onUpdateCheck, version }: IAboutListProps) {
   const api = useApi();
 
   useEffect(() => {}, []);
@@ -67,6 +69,10 @@ function AboutList({ release, onUpdateCheck }: IAboutListProps) {
         <HomeOutlined />
         <span className="ml-2">GitHub</span>
       </div>
+      <div className="h-30 leading-8">
+        <HeartOutlined />
+        <span className="ml-2">v{version}</span>
+      </div>
     </div>
   );
 }
@@ -78,6 +84,7 @@ function Header(props: IHeader) {
     hasCert,
     platform,
     newVersion,
+    version,
     onUpdateCheck
   } = props;
 
@@ -123,7 +130,11 @@ function Header(props: IHeader) {
           <Popover
             placement="bottomRight"
             content={
-              <AboutList onUpdateCheck={onUpdateCheck} release={newVersion} />
+              <AboutList
+                onUpdateCheck={onUpdateCheck}
+                release={newVersion}
+                version={version}
+              />
             }
           >
             <Badge dot={!!newVersion.id}>

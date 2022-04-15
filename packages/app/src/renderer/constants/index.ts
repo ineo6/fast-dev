@@ -4,4 +4,6 @@ export const GitHubUrl = "https://github.com/ineo6/fast-dev";
 
 export const GiteeUrl = "https://gitee.com/ineo6/fast-dev";
 
-export const DownloadPage = "https://gitee.com/ineo6/fast-dev/releases";
+export const GiteeDownloadPage = "https://gitee.com/ineo6/fast-dev/releases";
+
+export const GitHubDownloadPage = "https://github.com/ineo6/fast-dev/releases";

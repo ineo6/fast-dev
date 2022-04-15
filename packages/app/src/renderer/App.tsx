@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Drawer, message, Modal } from "antd";
+import { Button, Drawer, message, Modal } from "antd";
 import semver from "semver";
 import axios from "axios";
 import { useApi } from "./utils/api";
@@ -8,7 +8,11 @@ import CertTip from "./components/CertTip";
 import RouerContext from "./components/RouteContext";
 import { getSystemPlatform } from "./utils";
 import "./App.less";
-import { DownloadPage, updateCheckUrl } from "./constants";
+import {
+  GitHubDownloadPage,
+  GiteeDownloadPage,
+  updateCheckUrl
+} from "./constants";
 import ReactMarkdown from "react-markdown";
 
 export default function App({ children }: { children: any }) {
@@ -67,7 +71,7 @@ export default function App({ children }: { children: any }) {
   useEffect(() => {
     reloadConfig();
     getPkgInfo().then(pkgInfo => {
-      checkUpdate(pkgInfo);
+      checkUpdate(pkgInfo, true);
     });
 
     api.ipc.on("status", (event: any, message: any) => {
@@ -119,7 +123,7 @@ export default function App({ children }: { children: any }) {
     api.setting.save(setting);
   };
 
-  const checkUpdate = async (pkg: any) => {
+  const checkUpdate = async (pkg: any, auto: Boolean) => {
     try {
       const response = await axios.get(updateCheckUrl, {
         params: {
@@ -135,6 +139,8 @@ export default function App({ children }: { children: any }) {
         if (semver.gt(nextVersion, pkg.version)) {
           setNewVersion(versionInfo);
           setIsModalVisible(true);
+        } else {
+          !auto && message.info("已经是最新版本！");
         }
       }
     } catch (e) {
@@ -142,8 +148,14 @@ export default function App({ children }: { children: any }) {
     }
   };
 
-  const handleOk = () => {
-    api.ipc.openExternal(DownloadPage);
+  const openGiteeRelease = () => {
+    api.ipc.openExternal(GiteeDownloadPage);
+
+    setIsModalVisible(false);
+  };
+
+  const openGithubRelease = () => {
+    api.ipc.openExternal(GitHubDownloadPage);
 
     setIsModalVisible(false);
   };
@@ -153,7 +165,7 @@ export default function App({ children }: { children: any }) {
   };
 
   const onUpdateCheck = () => {
-    checkUpdate(pkgInfo);
+    checkUpdate(pkgInfo, false);
   };
 
   return (
@@ -171,6 +183,7 @@ export default function App({ children }: { children: any }) {
           hasCert={hasCert}
           platform={platform}
           newVersion={newVersion}
+          version={pkgInfo.version}
           onUpdateCheck={onUpdateCheck}
         />
         <div style={{ height: "calc(100vh - 40px)" }}>{children}</div>
@@ -192,10 +205,17 @@ export default function App({ children }: { children: any }) {
         <Modal
           title={`新版本(${newVersion.tag_name})已发布，是否立即升级?`}
           visible={isModalVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          okText="立即升级"
-          cancelText="取消"
+          footer={[
+            <Button key="back" onClick={handleCancel}>
+              取消
+            </Button>,
+            <Button key="gitee" type="primary" onClick={openGiteeRelease}>
+              立即升级(Gitee)
+            </Button>,
+            <Button key="github" type="primary" onClick={openGithubRelease}>
+              立即升级(Github)
+            </Button>
+          ]}
         >
           <div
             className="overflow-y-auto pl-2 pr-2"
