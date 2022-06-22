@@ -45,10 +45,14 @@ function Speed() {
     registerSpeedTestEvent();
 
     return () => {
-      clearInterval(timer.current);
-      api.ipc.removeAllListeners("speed");
+      clean();
     };
   }, [config]);
+
+  const clean = () => {
+    clearInterval(timer.current);
+    api.ipc.removeAllListeners("speed");
+  };
 
   const getDnsSource = () => {
     const options: { value: any; label: any }[] = [];
@@ -75,7 +79,7 @@ function Speed() {
 
     timer.current = setInterval(() => {
       api.server.getSpeedTestList();
-    }, 5000);
+    }, speedTest.interval);
   };
 
   const onProviderChange = (value: any) => {
@@ -101,6 +105,8 @@ function Speed() {
   const handleSubmit = () => {
     api.config.save(config).then(() => {
       message.success("设置已保存");
+      clean();
+      registerSpeedTestEvent();
     });
   };
 
