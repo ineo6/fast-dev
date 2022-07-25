@@ -11,5 +11,8 @@
     "@fast-dev/core": "{{version}}",
     "is-browser": "2.1.0",
     "json5": "^2.1.3"
+  },
+  "devDependencies": {
+    "electron": "16.0.2"
   }
 }
