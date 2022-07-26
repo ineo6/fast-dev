@@ -12,3 +12,9 @@
 
 - [GitHub Release](https://github.com/ineo6/fast-dev/releases)
 - [Gitee Release](https://gitee.com/ineo6/fast-dev/releases)
+
+## FAQ
+
+### 如果提示损坏或者无法打开
+
+可以尝试 [https://zhuanlan.zhihu.com/p/114919138](https://zhuanlan.zhihu.com/p/114919138)
